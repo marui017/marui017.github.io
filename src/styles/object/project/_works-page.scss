@@ -1,0 +1,25 @@
+// ==========================================================================
+// Object / Project / Works Page
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-works-page {
+  background: $color-bg-gray;
+  padding: 80px 0;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @include tablet {
+    &__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @include mobile {
+    padding: 48px 0;
+    &__grid { grid-template-columns: 1fr; }
+  }
+}

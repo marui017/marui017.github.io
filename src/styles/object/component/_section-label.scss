@@ -1,0 +1,36 @@
+// ==========================================================================
+// Object / Component / Section Label
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.c-section-label {
+  margin-bottom: 48px;
+
+  &__ja {
+    font-size: 12px;
+    color: $color-orange;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  &__en {
+    font-family: $font-heading;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900;
+    color: $color-navy;
+    letter-spacing: 0.1em;
+  }
+
+  // 中央揃え（Works・Service・Contact）
+  &--center {
+    text-align: center;
+  }
+
+  // ダーク背景用（Service・Contact）
+  &--light {
+    .c-section-label__ja { color: rgba($color-white, 0.7); }
+    .c-section-label__en { color: $color-white; }
+  }
+}

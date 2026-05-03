@@ -1,0 +1,117 @@
+// ==========================================================================
+// Object / Project / About
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-about {
+  background: $color-white;
+  padding: 80px 0;
+
+  &__inner {
+    max-width: $inner-width;
+    margin: 0 auto;
+    padding: 0 $inner-padding;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  &__content { flex: 1; }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-orange;
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: $color-text-light;
+    line-height: 2;
+    margin-bottom: 32px;
+  }
+
+  // 画像・装飾エリア
+  &__image-wrap {
+    position: relative;
+    flex-shrink: 0;
+    width: 244px;
+    height: 244px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 224px;
+      height: 224px;
+      border-radius: 16px;
+      border: 2px solid $color-navy;
+      top: 20px;
+      left: 20px;
+      z-index: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $color-orange;
+      top: -6px;
+      right: 14px;
+      z-index: 3;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 224px;
+    height: 224px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #d5d9ea 0%, #c2c8dd 100%);
+    z-index: 1;
+  }
+
+  // ── Tablet ───────────────────────────────────────────────────────────────
+
+  @include tablet {
+    &__inner { gap: 48px; }
+
+    &__image-wrap {
+      width: 208px;
+      height: 208px;
+
+      &::before { width: 190px; height: 190px; }
+      &::after  { width: 16px; height: 16px; }
+    }
+
+    &__photo { width: 190px; height: 190px; }
+  }
+
+  // ── Mobile ───────────────────────────────────────────────────────────────
+
+  @include mobile {
+    padding: 60px 0;
+
+    &__inner {
+      flex-direction: column;
+      padding: 0 20px;
+      gap: 48px;
+    }
+
+    &__image-wrap {
+      width: 192px;
+      height: 192px;
+      align-self: center;
+
+      &::before { width: 174px; height: 174px; top: 18px; left: 18px; }
+      &::after  { width: 14px; height: 14px; }
+    }
+
+    &__photo { width: 174px; height: 174px; }
+  }
+}

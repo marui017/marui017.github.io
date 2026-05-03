@@ -1,0 +1,15 @@
+// ==========================================================================
+// Layout / Container
+// ==========================================================================
+
+@use '../foundation/variables' as *;
+
+.l-inner {
+  max-width: $inner-width;
+  margin: 0 auto;
+  padding: 0 $inner-padding;
+
+  @include mobile {
+    padding: 0 20px;
+  }
+}

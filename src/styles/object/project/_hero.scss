@@ -1,0 +1,383 @@
+// ==========================================================================
+// Object / Project / Hero
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+// ── Keyframes ──────────────────────────────────────────────────────────────
+
+@keyframes p-hero-fade-slide-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes p-hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes p-hero-scale-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes p-hero-float-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes p-hero-float-y-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-16px); }
+}
+
+@keyframes p-hero-scroll-drop {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(300%); opacity: 0; }
+}
+
+@keyframes p-hero-scroll-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.8; }
+}
+
+// ── Block ──────────────────────────────────────────────────────────────────
+
+.p-hero {
+  background: linear-gradient(150deg, #edf0fc 0%, #f5f6fd 45%, #ffffff 100%);
+  min-height: 640px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  // ── Background decoration ────────────────────────────────────────────────
+
+  &__bg-text {
+    position: absolute;
+    bottom: -0.1em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $font-heading;
+    font-size: clamp(80px, 14vw, 180px);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: rgba($color-navy, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    animation: p-hero-fade-in 1.2s ease both 0.3s;
+  }
+
+  &__bg-ring {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    border: 1.5px solid rgba($color-navy, 0.06);
+    bottom: -200px;
+    left: -120px;
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba($color-navy, 0.04);
+    }
+  }
+
+  // ── Inner ────────────────────────────────────────────────────────────────
+
+  &__inner {
+    flex: 1;
+    max-width: $inner-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px $inner-padding 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  // ── Content ──────────────────────────────────────────────────────────────
+
+  &__content {
+    flex: 1;
+    max-width: 520px;
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-orange;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.1s;
+  }
+
+  &__subtitle-bar {
+    display: inline-block;
+    width: 32px;
+    height: 2px;
+    background: $color-orange;
+    flex-shrink: 0;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    font-family: $font-heading;
+    font-weight: 900;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+  }
+
+  &__heading-line1 {
+    font-size: clamp(52px, 8vw, 88px);
+    color: $color-navy;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.25s;
+  }
+
+  &__heading-line2 {
+    font-size: clamp(36px, 5.5vw, 60px);
+    color: $color-orange;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.38s;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: $color-text-light;
+    line-height: 2;
+    margin-bottom: 40px;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.52s;
+  }
+
+  // CTA は .c-button--primary を流用しつつアニメーションを付与
+  .c-button--primary {
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.65s;
+  }
+
+  // ── Visual ───────────────────────────────────────────────────────────────
+
+  &__visual {
+    position: relative;
+    flex-shrink: 0;
+    width: 380px;
+    height: 380px;
+    animation: p-hero-scale-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both 0.2s;
+  }
+
+  &__circle {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: $color-navy;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: p-hero-float-y-slow 6s ease-in-out infinite;
+  }
+
+  &__ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 1.5px solid rgba($color-white, 0.2);
+
+    &--sm {
+      width: 160px;
+      height: 160px;
+      border-color: rgba($color-white, 0.12);
+    }
+  }
+
+  &__accent {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: $color-orange;
+    top: 0;
+    right: 0;
+    animation:
+      p-hero-scale-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both 0.5s,
+      p-hero-float-y 4s ease-in-out infinite 1.1s;
+  }
+
+  &__dot {
+    position: absolute;
+    border-radius: 50%;
+
+    &--1 {
+      width: 16px;
+      height: 16px;
+      background: $color-orange;
+      opacity: 0.5;
+      bottom: 48px;
+      left: 4px;
+      animation:
+        p-hero-fade-in 0.5s ease both 0.8s,
+        p-hero-float-y 5s ease-in-out infinite 1.3s;
+    }
+
+    &--2 {
+      width: 10px;
+      height: 10px;
+      border: 2px solid $color-navy;
+      opacity: 0.35;
+      bottom: 28px;
+      left: 28px;
+      animation:
+        p-hero-fade-in 0.5s ease both 0.9s,
+        p-hero-float-y 5s ease-in-out 0.8s infinite 1.7s;
+    }
+
+    &--3 {
+      width: 24px;
+      height: 24px;
+      border: 2px solid $color-orange;
+      opacity: 0.4;
+      top: 10px;
+      left: 0;
+      animation:
+        p-hero-fade-in 0.5s ease both 0.7s,
+        p-hero-float-y 4.5s ease-in-out 0.4s infinite 1.2s;
+    }
+  }
+
+  // ── Scroll indicator ─────────────────────────────────────────────────────
+
+  &__scroll {
+    position: absolute;
+    bottom: 36px;
+    right: $inner-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: p-hero-fade-in 1s ease both 1s;
+  }
+
+  &__scroll-text {
+    font-family: $font-heading;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: $color-navy;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    animation: p-hero-scroll-pulse 2s ease-in-out 1s infinite;
+  }
+
+  &__scroll-line {
+    position: relative;
+    width: 1px;
+    height: 72px;
+    background: rgba($color-navy, 0.15);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        $color-navy 40%,
+        $color-navy 60%,
+        transparent 100%
+      );
+      animation: p-hero-scroll-drop 2s ease-in-out 1s infinite;
+    }
+  }
+
+  // ── Tablet ───────────────────────────────────────────────────────────────
+
+  @include tablet {
+    &__visual   { width: 300px; height: 300px; }
+    &__circle   { width: 268px; height: 268px; }
+    &__ring     { width: 200px; height: 200px; }
+    &__ring--sm { width: 120px; height: 120px; }
+    &__accent   { width: 68px;  height: 68px; }
+  }
+
+  // ── Mobile ───────────────────────────────────────────────────────────────
+
+  @include mobile {
+    min-height: auto;
+
+    &__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 48px 20px 56px;
+      position: relative;
+      gap: 0;
+    }
+
+    &__content {
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    // ビジュアルをフローから外して背景装飾に
+    &__visual {
+      position: absolute;
+      top: 24px;
+      right: -48px;
+      width: 180px;
+      height: 180px;
+      opacity: 0.35;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    &__circle {
+      width: 156px;
+      height: 156px;
+      top: 12px;
+      left: 12px;
+      animation: none;
+    }
+
+    &__ring     { width: 118px; height: 118px; }
+    &__ring--sm { width: 72px;  height: 72px; }
+    &__accent   { width: 44px;  height: 44px; animation: none; }
+
+    &__dot { display: none; }
+
+    &__bg-ring { display: none; }
+
+    &__bg-text {
+      font-size: clamp(52px, 18vw, 80px);
+      bottom: -0.05em;
+    }
+
+    &__scroll {
+      bottom: 16px;
+      right: 20px;
+    }
+
+    &__scroll-line { height: 48px; }
+  }
+}

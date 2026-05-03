@@ -1,0 +1,190 @@
+// ==========================================================================
+// Object / Project / About Page
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-about-page {
+  background: $color-white;
+  padding: 80px 0;
+
+  // ── Profile ──────────────────────────────────────────────────────────────
+
+  &__profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 64px;
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  &__photo-wrap {
+    flex-shrink: 0;
+    position: relative;
+    width: 216px;
+    height: 216px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 16px;
+      border: 2px solid $color-navy;
+      top: 16px;
+      left: 16px;
+      z-index: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $color-orange;
+      top: -4px;
+      right: 10px;
+      z-index: 3;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #d5d9ea 0%, #c2c8dd 100%);
+    z-index: 1;
+  }
+
+  &__bio { flex: 1; }
+
+  &__name {
+    font-family: $font-heading;
+    font-size: 28px;
+    font-weight: 900;
+    color: $color-navy;
+    margin-bottom: 4px;
+  }
+
+  &__role {
+    font-size: 13px;
+    color: $color-orange;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    font-size: 15px;
+    color: $color-text-light;
+    line-height: 2;
+  }
+
+  // ── Skills ───────────────────────────────────────────────────────────────
+
+  &__skills {
+    padding-top: 48px;
+  }
+
+  &__skills-title {
+    font-family: $font-heading;
+    font-size: 20px;
+    font-weight: 900;
+    color: $color-navy;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+  }
+
+  &__skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  &__skill-card {
+    padding: 28px 24px;
+    background: $color-bg-gray;
+    border-radius: 12px;
+    border-top: 3px solid $color-orange;
+  }
+
+  &__skill-category {
+    font-family: $font-heading;
+    font-size: 15px;
+    font-weight: 900;
+    color: $color-navy;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  &__skill-desc {
+    font-size: 13px;
+    color: $color-text-light;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  &__skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__skill-tag {
+    font-family: $font-heading;
+    font-size: 11px;
+    font-weight: 700;
+    color: $color-navy;
+    background: $color-white;
+    border: 1px solid rgba($color-navy, 0.15);
+    border-radius: 40px;
+    padding: 4px 12px;
+    letter-spacing: 0.04em;
+  }
+
+  // ── Responsive ───────────────────────────────────────────────────────────
+
+  @include tablet {
+    &__skill-grid { grid-template-columns: 1fr; }
+  }
+
+  @include mobile {
+    padding: 48px 0;
+
+    &__profile {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      text-align: center;
+    }
+
+    &__photo-wrap {
+      width: 176px;
+      height: 176px;
+
+      &::before {
+        width: 160px;
+        height: 160px;
+      }
+
+      &::after {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    &__photo {
+      width: 160px;
+      height: 160px;
+    }
+
+    &__skill-grid { grid-template-columns: 1fr; }
+  }
+}

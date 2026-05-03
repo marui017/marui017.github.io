@@ -1,0 +1,92 @@
+// ==========================================================================
+// Object / Component / Button
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-heading;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+
+  &::after {
+    content: '→';
+    font-size: 14px;
+    font-weight: 400;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover::after {
+    transform: translateX(4px);
+  }
+
+  // ── オレンジ塗り（Hero CTA・フォーム送信など白背景上）───────────────────────
+
+  &--primary {
+    font-size: 13px;
+    padding: 14px 32px;
+    background: $color-orange;
+    color: $color-white;
+    border: none;
+    box-shadow: 0 4px 16px rgba($color-orange, 0.4);
+
+    &:hover {
+      background: #c73e0f;
+      box-shadow: 0 6px 24px rgba($color-orange, 0.5);
+      transform: translateY(-2px);
+    }
+  }
+
+  // ── アウトライン（Works・About など白／グレー背景上）────────────────────────
+
+  &--outline {
+    font-size: 13px;
+    padding: 12px 30px;
+    background: transparent;
+    color: $color-navy;
+    border: 1.5px solid $color-navy;
+
+    &:hover {
+      background: $color-navy;
+      color: $color-white;
+      transform: translateY(-2px);
+    }
+  }
+
+  // ── 白抜き（Contact セクション：オレンジ背景上）─────────────────────────────
+
+  &--contact {
+    font-size: 13px;
+    padding: 14px 40px;
+    background: $color-white;
+    color: $color-navy;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      background: $color-navy;
+      color: $color-white;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+      transform: translateY(-2px);
+    }
+
+    @include mobile {
+      padding: 14px 32px;
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+    }
+  }
+}

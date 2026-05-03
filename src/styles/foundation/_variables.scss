@@ -1,0 +1,32 @@
+// ==========================================================================
+// Foundation / Variables
+// ==========================================================================
+
+// Colors
+$color-navy:       #1a2968;
+$color-orange:     #e84e1a;
+$color-white:      #ffffff;
+$color-bg-gray:    #f9f9f9;
+$color-text:       #333333;
+$color-text-light: #666666;
+
+// Typography
+$font-sans:    'Inter', 'Noto Sans JP', sans-serif;
+$font-heading: 'Montserrat', 'Inter', 'Noto Sans JP', sans-serif;
+
+// Layout
+$inner-width:   1100px;
+$inner-padding: 40px;
+
+// Breakpoints
+$bp-tablet: 1024px;
+$bp-mobile: 768px;
+
+// Mixins
+@mixin tablet {
+  @media (max-width: $bp-tablet) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) { @content; }
+}

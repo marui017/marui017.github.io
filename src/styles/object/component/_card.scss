@@ -1,0 +1,73 @@
+// ==========================================================================
+// Object / Component / Card
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.c-card {
+  background: $color-white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  display: block;
+
+  &--link {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #d9d9d9;
+  }
+
+  &__body {
+    padding: 20px 24px 24px;
+
+    @include mobile { padding: 16px; }
+  }
+
+  &__type {
+    font-size: 11px;
+    color: $color-orange;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-navy;
+    margin-bottom: 8px;
+  }
+
+  &__desc {
+    font-size: 13px;
+    color: $color-text-light;
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__tag {
+    font-size: 11px;
+    color: $color-orange;
+    border: 1px solid $color-orange;
+    border-radius: 2px;
+    padding: 2px 8px;
+    letter-spacing: 0.05em;
+  }
+}

@@ -1,0 +1,78 @@
+// ==========================================================================
+// Layout / Footer
+// ==========================================================================
+
+@use '../foundation/variables' as *;
+
+.l-footer {
+  background: $color-white;
+  border-top: 1px solid #eeeeee;
+  padding: 24px 0;
+
+  &__inner {
+    max-width: $inner-width;
+    margin: 0 auto;
+    padding: 0 $inner-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // ロゴ＋ナビをまとめた左グループ
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: 18px;
+    font-weight: 900;
+    color: $color-navy;
+    letter-spacing: 0.05em;
+  }
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  &__nav-link {
+    font-family: $font-heading;
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-navy;
+    letter-spacing: 0.1em;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 0.6; }
+
+    &--contact {
+      background: $color-orange;
+      color: $color-white;
+      padding: 6px 16px;
+      border-radius: 20px;
+
+      &:hover { opacity: 0.85; }
+    }
+  }
+
+  &__copy {
+    font-size: 11px;
+    color: #999999;
+    letter-spacing: 0.05em;
+  }
+
+  @include mobile {
+    padding: 32px 0;
+
+    &__inner {
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 20px;
+      text-align: center;
+    }
+  }
+}

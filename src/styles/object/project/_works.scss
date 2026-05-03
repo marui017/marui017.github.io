@@ -1,0 +1,116 @@
+// ==========================================================================
+// Object / Project / Works
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-works {
+  background: $color-bg-gray;
+  padding: 80px 0;
+
+  // ── Grid（件数 ≤ 2） ──────────────────────────────────────────────────────
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  // ── Slider（件数 ≥ 3） ─────────────────────────────────────────────────────
+
+  &__slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__viewport {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid $color-navy;
+    background: $color-white;
+    color: $color-navy;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, opacity 0.2s;
+
+    svg { width: 18px; height: 18px; }
+
+    &:hover:not(:disabled) {
+      background: $color-navy;
+      color: $color-white;
+    }
+
+    &:disabled { opacity: 0.25; cursor: default; }
+  }
+
+  // ── Dots ─────────────────────────────────────────────────────────────────
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cccccc;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s, transform 0.25s;
+
+    &.is-active {
+      background: $color-navy;
+      transform: scale(1.25);
+    }
+  }
+
+  // ── More button ───────────────────────────────────────────────────────────
+
+  &__btn-wrap {
+    text-align: center;
+  }
+
+  // ── Mobile ───────────────────────────────────────────────────────────────
+
+  @include mobile {
+    padding: 60px 0;
+
+    &__grid { grid-template-columns: 1fr; }
+
+    &__slide { padding: 0 8px; }
+
+    &__arrow {
+      width: 36px;
+      height: 36px;
+      svg { width: 15px; height: 15px; }
+    }
+  }
+}

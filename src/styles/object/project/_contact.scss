@@ -1,0 +1,50 @@
+// ==========================================================================
+// Object / Project / Contact
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-contact {
+  position: relative;
+
+  &__wave {
+    width: 100%;
+    height: 80px;
+    background: $color-white;
+    clip-path: ellipse(55% 100% at 50% 0%);
+    position: relative;
+    z-index: 1;
+    margin-bottom: -1px;
+  }
+
+  &__body {
+    background: $color-orange;
+    padding: 60px 0 80px;
+  }
+
+  &__inner {
+    max-width: $inner-width;
+    margin: 0 auto;
+    padding: 0 $inner-padding;
+    text-align: center;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: rgba($color-white, 0.9);
+    line-height: 2;
+    margin-bottom: 36px;
+  }
+
+  // ── Mobile ───────────────────────────────────────────────────────────────
+
+  @include mobile {
+    &__wave { height: 56px; }
+
+    &__body { padding: 40px 0 64px; }
+
+    &__inner { padding: 0 20px; }
+
+    &__description { font-size: 13px; }
+  }
+}

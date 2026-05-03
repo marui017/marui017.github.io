@@ -1,0 +1,104 @@
+// ==========================================================================
+// Object / Project / Contact Page
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-contact-page {
+  background: $color-white;
+  padding: 80px 0;
+
+  &__lead {
+    font-size: 15px;
+    color: $color-text-light;
+    line-height: 2;
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  // ── Form ─────────────────────────────────────────────────────────────────
+
+  &__form {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-navy;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__required {
+    font-size: 11px;
+    font-weight: 700;
+    color: $color-white;
+    background: $color-orange;
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  %field-base {
+    width: 100%;
+    font-family: inherit;
+    font-size: 15px;
+    color: $color-text;
+    background: $color-bg-gray;
+    border: 1.5px solid transparent;
+    border-radius: 4px;
+    padding: 14px 16px;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+
+    &::placeholder { color: #aaaaaa; }
+
+    &:focus {
+      background: $color-white;
+      border-color: $color-navy;
+    }
+  }
+
+  &__input    { @extend %field-base; }
+  &__select   { @extend %field-base; appearance: none; cursor: pointer; }
+  &__textarea { @extend %field-base; resize: vertical; line-height: 1.8; }
+
+  &__submit {
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  // ── Thanks ───────────────────────────────────────────────────────────────
+
+  &__thanks {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 56px 40px;
+    background: $color-bg-gray;
+    border-radius: 4px;
+    font-size: 15px;
+    color: $color-text-light;
+    line-height: 2;
+  }
+
+  // ── Responsive ───────────────────────────────────────────────────────────
+
+  @include mobile {
+    padding: 48px 0;
+
+    &__lead { font-size: 14px; margin-bottom: 40px; }
+  }
+}

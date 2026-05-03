@@ -1,0 +1,46 @@
+// ==========================================================================
+// Object / Project / Scroll To Top
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-scroll-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $color-navy;
+  color: $color-white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26, 41, 104, 0.3);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
+
+  svg { width: 20px; height: 20px; }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &:hover { background: $color-orange; }
+
+  @include mobile {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+
+    svg { width: 16px; height: 16px; }
+  }
+}

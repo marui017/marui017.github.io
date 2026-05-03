@@ -1,0 +1,121 @@
+// ==========================================================================
+// Object / Project / Page Hero（下層ページ共通ヒーロー）
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-page-hero {
+  background: $color-navy;
+  padding: 52px 0 44px;
+  position: relative;
+  overflow: hidden;
+
+  // ── 装飾：大リング ─────────────────────────────────────────────────────────
+
+  &__ring {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1.5px solid rgba($color-white, 0.1);
+    top: 50%;
+    right: -80px;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    // 小リング（--sm は HTML上 ring--sm クラスを流用）
+    &--sm {
+      width: 220px;
+      height: 220px;
+      border-color: rgba($color-white, 0.06);
+      right: -10px;
+    }
+  }
+
+  // ── 装飾：オレンジアクセント円 ────────────────────────────────────────────
+
+  &__accent {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: $color-orange;
+    opacity: 0.85;
+    top: -20px;
+    right: 120px;
+    pointer-events: none;
+  }
+
+  // ── 装飾：小ドット ─────────────────────────────────────────────────────────
+
+  &__dot1 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $color-orange;
+    opacity: 0.5;
+    bottom: 24px;
+    right: 200px;
+    pointer-events: none;
+  }
+
+  &__dot2 {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba($color-white, 0.3);
+    bottom: 40px;
+    right: 240px;
+    pointer-events: none;
+  }
+
+  // ── テキスト ───────────────────────────────────────────────────────────────
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: rgba($color-white, 0.65);
+    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+    font-family: $font-heading;
+    font-weight: 700;
+  }
+
+  &__label-bar {
+    display: inline-block;
+    width: 24px;
+    height: 1.5px;
+    background: $color-orange;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: clamp(44px, 6vw, 68px);
+    font-weight: 900;
+    color: $color-white;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+
+  // ── Mobile ───────────────────────────────────────────────────────────────
+
+  @include mobile {
+    padding: 40px 0 32px;
+
+    &__ring     { width: 240px; height: 240px; right: -60px; }
+    &__ring--sm { width: 150px; height: 150px; right: -20px; }
+    &__accent   { width: 52px; height: 52px; right: 60px; top: -14px; }
+    &__dot1     { right: 100px; }
+    &__dot2     { right: 130px; }
+  }
+}

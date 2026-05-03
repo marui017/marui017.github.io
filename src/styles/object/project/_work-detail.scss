@@ -1,0 +1,271 @@
+// ==========================================================================
+// Object / Project / Work Detail
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+
+.p-work-detail {
+  background: $color-white;
+  padding: 64px 0 80px;
+
+  // ── Device Mockups ────────────────────────────────────────────────────────
+
+  &__stage {
+    background: $color-bg-gray;
+    padding: 56px 0 48px;
+    margin-bottom: 56px;
+  }
+
+  &__mockups {
+    max-width: $inner-width;
+    margin: 0 auto;
+    padding: 0 $inner-padding;
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+  }
+
+  &__device {
+    &--pc {
+      flex: 1;
+      border: 7px solid $color-navy;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba($color-navy, 0.22);
+    }
+
+    &--sp {
+      flex-shrink: 0;
+      width: 200px;
+      border: 6px solid $color-navy;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba($color-navy, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__device-chrome {
+    height: 32px;
+    background: $color-navy;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+    flex-shrink: 0;
+
+    span {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba($color-white, 0.25);
+    }
+  }
+
+  &__device-screen {
+    background: #d0d3e0;
+    background-size: cover;
+    background-position: top center;
+
+    .p-work-detail__device--pc & {
+      aspect-ratio: 16 / 10;
+    }
+
+    .p-work-detail__device--sp & {
+      flex: 1;
+      aspect-ratio: 9 / 17;
+    }
+  }
+
+  &__device-notch {
+    height: 22px;
+    background: $color-navy;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      width: 48px;
+      height: 10px;
+      background: rgba($color-white, 0.15);
+      border-radius: 5px;
+    }
+  }
+
+  &__device-home {
+    height: 20px;
+    background: $color-navy;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      width: 40px;
+      height: 4px;
+      background: rgba($color-white, 0.3);
+      border-radius: 2px;
+    }
+  }
+
+  // ── Meta ──────────────────────────────────────────────────────────────────
+
+  &__meta {
+    display: flex;
+    gap: 0;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+
+  &__meta-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 24px;
+    border-right: 1px solid #eeeeee;
+
+    &:last-child { border-right: none; }
+  }
+
+  &__meta-label {
+    font-family: $font-heading;
+    font-size: 11px;
+    font-weight: 700;
+    color: $color-orange;
+    letter-spacing: 0.1em;
+  }
+
+  &__meta-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-navy;
+  }
+
+  // ── Body ──────────────────────────────────────────────────────────────────
+
+  &__body {
+    max-width: 760px;
+  }
+
+  &__section {
+    margin-bottom: 48px;
+  }
+
+  &__section-title {
+    font-family: $font-heading;
+    font-size: 16px;
+    font-weight: 900;
+    color: $color-navy;
+    letter-spacing: 0.06em;
+    padding-left: 14px;
+    border-left: 3px solid $color-orange;
+    margin-bottom: 20px;
+  }
+
+  &__overview {
+    font-size: 15px;
+    color: $color-text-light;
+    line-height: 2;
+  }
+
+  // ── Points ────────────────────────────────────────────────────────────────
+
+  &__points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__point {
+    font-size: 14px;
+    color: $color-text;
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-orange;
+    }
+  }
+
+  // ── Tags ──────────────────────────────────────────────────────────────────
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__tag {
+    font-family: $font-heading;
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-navy;
+    border: 1.5px solid rgba($color-navy, 0.2);
+    border-radius: 40px;
+    padding: 5px 14px;
+    letter-spacing: 0.05em;
+  }
+
+  // ── External Link ─────────────────────────────────────────────────────────
+
+  &__link {
+    margin-top: 40px;
+  }
+
+  // ── Back ──────────────────────────────────────────────────────────────────
+
+  &__back {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid #eeeeee;
+  }
+
+  // ── Mobile ───────────────────────────────────────────────────────────────
+
+  @include mobile {
+    padding: 48px 0 64px;
+
+    &__stage { padding: 36px 0 32px; margin-bottom: 36px; }
+
+    &__mockups { padding: 0 20px; gap: 16px; }
+
+    &__device--sp { width: 120px; }
+
+    &__device-chrome { height: 24px; }
+    &__device-notch  { height: 16px; }
+    &__device-home   { height: 14px; }
+
+    &__meta {
+      flex-direction: column;
+      border-radius: 8px;
+    }
+
+    &__meta-item {
+      border-right: none;
+      border-bottom: 1px solid #eeeeee;
+      padding: 16px 20px;
+
+      &:last-child { border-bottom: none; }
+    }
+
+    &__section { margin-bottom: 36px; }
+
+    &__back { margin-top: 48px; }
+  }
+}
