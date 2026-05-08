@@ -36,7 +36,7 @@ export default function AboutPage() {
               <div className="p-about-page__photo">
                 <img
                   className="p-about-page__image"
-                  src="/src/assets/img/about.png"
+                  src="./src/assets/img/about.png"
                   alt="marui"
                 />
               </div>

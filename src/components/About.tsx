@@ -22,7 +22,7 @@ export default function About() {
           <div className="p-about__photo">
             <img
               className="p-about__image"
-              src="/src/assets/img/about.png"
+              src="./src/assets/img/about.png"
               alt="marui"
             />
           </div>
