@@ -1,4 +1,5 @@
 import aboutImg from "../assets/img/about.png";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -18,6 +19,11 @@ export default function About() {
           <a href="/about" className="c-button c-button--outline">
             Read More
           </a>
+          <div>
+            <Link to="/about" className="c-button c-button--outline">
+              Read More
+            </Link>
+          </div>
         </div>
 
         <div className="p-about__image-wrap" aria-hidden="true">
