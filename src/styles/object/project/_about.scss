@@ -2,10 +2,10 @@
 // Object / Project / About
 // ==========================================================================
 
-@use '../../foundation/variables' as *;
+@use "../../foundation/variables" as *;
 
 .p-about {
-  background: $color-white;
+  background: $color-bg-gray;
   padding: 80px 0;
 
   &__inner {
@@ -17,7 +17,9 @@
     gap: 80px;
   }
 
-  &__content { flex: 1; }
+  &__content {
+    flex: 1;
+  }
 
   &__name {
     font-size: 18px;
@@ -41,7 +43,7 @@
     height: 244px;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 224px;
       height: 224px;
@@ -53,7 +55,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 20px;
       height: 20px;
@@ -72,24 +74,42 @@
     width: 224px;
     height: 224px;
     border-radius: 16px;
-    background: linear-gradient(145deg, #d5d9ea 0%, #c2c8dd 100%);
     z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
   }
 
   // ── Tablet ───────────────────────────────────────────────────────────────
 
   @include tablet {
-    &__inner { gap: 48px; }
+    &__inner {
+      gap: 48px;
+    }
 
     &__image-wrap {
       width: 208px;
       height: 208px;
 
-      &::before { width: 190px; height: 190px; }
-      &::after  { width: 16px; height: 16px; }
+      &::before {
+        width: 190px;
+        height: 190px;
+      }
+      &::after {
+        width: 16px;
+        height: 16px;
+      }
     }
 
-    &__photo { width: 190px; height: 190px; }
+    &__photo {
+      width: 190px;
+      height: 190px;
+    }
   }
 
   // ── Mobile ───────────────────────────────────────────────────────────────
@@ -108,10 +128,21 @@
       height: 192px;
       align-self: center;
 
-      &::before { width: 174px; height: 174px; top: 18px; left: 18px; }
-      &::after  { width: 14px; height: 14px; }
+      &::before {
+        width: 174px;
+        height: 174px;
+        top: 18px;
+        left: 18px;
+      }
+      &::after {
+        width: 14px;
+        height: 14px;
+      }
     }
 
-    &__photo { width: 174px; height: 174px; }
+    &__photo {
+      width: 174px;
+      height: 174px;
+    }
   }
 }

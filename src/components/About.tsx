@@ -9,16 +9,25 @@ export default function About() {
           </div>
           <p className="p-about__name">marui</p>
           <p className="p-about__description">
-            Webサイト制作のご依頼を承っています。デザインからコーディングまで一貫して対応可能です。<br />
+            Webサイト制作のご依頼を承っています。デザインからコーディングまで一貫して対応可能です。
+            <br />
             丁寧なヒアリングを心がけ、ご要望をわかりやすく形にします。
           </p>
-          <a href="/about" className="c-button c-button--outline">Read More</a>
+          <a href="/about" className="c-button c-button--outline">
+            Read More
+          </a>
         </div>
 
         <div className="p-about__image-wrap" aria-hidden="true">
-          <div className="p-about__photo" />
+          <div className="p-about__photo">
+            <img
+              className="p-about__image"
+              src="/src/assets/img/about.png"
+              alt="marui"
+            />
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -2,7 +2,7 @@
 // Object / Component / Global Navigation
 // ==========================================================================
 
-@use '../../foundation/variables' as *;
+@use "../../foundation/variables" as *;
 
 .c-gnav {
   display: flex;
@@ -16,7 +16,7 @@
   &__list {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
   }
 
   &__link {
@@ -25,16 +25,20 @@
     font-weight: 700;
     color: $color-white;
     letter-spacing: 0.1em;
-    transition: opacity 0.2s;
+    transition: all 0.3s;
 
-    &:hover { opacity: 0.7; }
+    &:hover {
+      color: $color-navy;
+    }
 
     &--contact {
       background: $color-white;
       color: $color-orange;
       padding: 8px 20px;
       border-radius: 20px;
-      transition: background 0.2s, color 0.2s;
+      transition:
+        background 0.3s,
+        color 0.3s;
 
       &:hover {
         background: $color-navy;
@@ -61,9 +65,16 @@
 
     &.is-open {
       .c-gnav__bar {
-        &:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        &:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        &:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        &:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+        &:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
       }
     }
   }
@@ -74,13 +85,17 @@
     height: 2px;
     background: $color-white;
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
     transform-origin: center;
   }
 
   // モバイル
   @include mobile {
-    &__hamburger { display: flex; }
+    &__hamburger {
+      display: flex;
+    }
 
     &__nav {
       position: fixed;
@@ -94,7 +109,9 @@
       pointer-events: none;
       opacity: 0;
       transform: translateY(-8px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
       z-index: 100;
 
       &.is-open {
@@ -112,7 +129,10 @@
 
     &__link {
       font-size: 18px;
-      &--contact { font-size: 16px; padding: 12px 32px; }
+      &--contact {
+        font-size: 16px;
+        padding: 12px 32px;
+      }
     }
   }
 }

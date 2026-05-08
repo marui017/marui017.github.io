@@ -2,45 +2,86 @@
 // Object / Project / Hero
 // ==========================================================================
 
-@use '../../foundation/variables' as *;
+@use "../../foundation/variables" as *;
 
 // ── Keyframes ──────────────────────────────────────────────────────────────
 
 @keyframes p-hero-fade-slide-up {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes p-hero-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes p-hero-scale-in {
-  from { opacity: 0; transform: scale(0.88); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes p-hero-float-y {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes p-hero-float-y-slow {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-16px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
 }
 
 @keyframes p-hero-scroll-drop {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  20%  { opacity: 1; }
-  80%  { opacity: 1; }
-  100% { transform: translateY(300%); opacity: 0; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
 }
 
 @keyframes p-hero-scroll-pulse {
-  0%, 100% { opacity: 0.35; }
-  50%       { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 // ── Block ──────────────────────────────────────────────────────────────────
@@ -83,7 +124,7 @@
     pointer-events: none;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 48px;
       border-radius: 50%;
@@ -121,13 +162,14 @@
     font-weight: 700;
     color: $color-orange;
     letter-spacing: 0.12em;
-    margin-bottom: 24px;
-    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.1s;
+    margin-bottom: 5px;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both
+      0.1s;
   }
 
   &__subtitle-bar {
     display: inline-block;
-    width: 32px;
+    width: 20px;
     height: 2px;
     background: $color-orange;
     flex-shrink: 0;
@@ -146,14 +188,18 @@
 
   &__heading-line1 {
     font-size: clamp(52px, 8vw, 88px);
+    letter-spacing: 0.1em;
     color: $color-navy;
-    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.25s;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both
+      0.25s;
   }
 
   &__heading-line2 {
-    font-size: clamp(36px, 5.5vw, 60px);
+    font-size: clamp(36px, 5.5vw, 70px);
+    letter-spacing: 0.1em;
     color: $color-orange;
-    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.38s;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both
+      0.38s;
   }
 
   &__description {
@@ -161,12 +207,14 @@
     color: $color-text-light;
     line-height: 2;
     margin-bottom: 40px;
-    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.52s;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both
+      0.52s;
   }
 
   // CTA は .c-button--primary を流用しつつアニメーションを付与
   .c-button--primary {
-    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both 0.65s;
+    animation: p-hero-fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both
+      0.65s;
   }
 
   // ── Visual ───────────────────────────────────────────────────────────────
@@ -294,7 +342,7 @@
     overflow: hidden;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -314,11 +362,26 @@
   // ── Tablet ───────────────────────────────────────────────────────────────
 
   @include tablet {
-    &__visual   { width: 300px; height: 300px; }
-    &__circle   { width: 268px; height: 268px; }
-    &__ring     { width: 200px; height: 200px; }
-    &__ring--sm { width: 120px; height: 120px; }
-    &__accent   { width: 68px;  height: 68px; }
+    &__visual {
+      width: 300px;
+      height: 300px;
+    }
+    &__circle {
+      width: 268px;
+      height: 268px;
+    }
+    &__ring {
+      width: 200px;
+      height: 200px;
+    }
+    &__ring--sm {
+      width: 120px;
+      height: 120px;
+    }
+    &__accent {
+      width: 68px;
+      height: 68px;
+    }
   }
 
   // ── Mobile ───────────────────────────────────────────────────────────────
@@ -360,13 +423,27 @@
       animation: none;
     }
 
-    &__ring     { width: 118px; height: 118px; }
-    &__ring--sm { width: 72px;  height: 72px; }
-    &__accent   { width: 44px;  height: 44px; animation: none; }
+    &__ring {
+      width: 118px;
+      height: 118px;
+    }
+    &__ring--sm {
+      width: 72px;
+      height: 72px;
+    }
+    &__accent {
+      width: 44px;
+      height: 44px;
+      animation: none;
+    }
 
-    &__dot { display: none; }
+    &__dot {
+      display: none;
+    }
 
-    &__bg-ring { display: none; }
+    &__bg-ring {
+      display: none;
+    }
 
     &__bg-text {
       font-size: clamp(52px, 18vw, 80px);
@@ -378,6 +455,8 @@
       right: 20px;
     }
 
-    &__scroll-line { height: 48px; }
+    &__scroll-line {
+      height: 48px;
+    }
   }
 }

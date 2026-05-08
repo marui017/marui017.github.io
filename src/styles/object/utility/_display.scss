@@ -1,0 +1,15 @@
+@use "../../foundation/variables" as *;
+
+.pc-hide {
+  display: none;
+  @include mobile {
+    display: block;
+  }
+}
+
+.sp-hide {
+  display: block;
+  @include mobile {
+    display: none;
+  }
+}

@@ -2,10 +2,13 @@
 // Object / Project / Contact Page
 // ==========================================================================
 
-@use '../../foundation/variables' as *;
+@use "../../foundation/variables" as *;
 
 .p-contact-page {
-  background: $color-white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: $color-bg-gray;
   padding: 80px 0;
 
   &__lead {
@@ -56,14 +59,19 @@
     font-family: inherit;
     font-size: 15px;
     color: $color-text;
-    background: $color-bg-gray;
+    background: $color-white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     border: 1.5px solid transparent;
     border-radius: 4px;
     padding: 14px 16px;
-    transition: border-color 0.2s, background 0.2s;
+    transition:
+      border-color 0.3s,
+      background 0.3s;
     outline: none;
 
-    &::placeholder { color: #aaaaaa; }
+    &::placeholder {
+      color: #aaaaaa;
+    }
 
     &:focus {
       background: $color-white;
@@ -71,9 +79,19 @@
     }
   }
 
-  &__input    { @extend %field-base; }
-  &__select   { @extend %field-base; appearance: none; cursor: pointer; }
-  &__textarea { @extend %field-base; resize: vertical; line-height: 1.8; }
+  &__input {
+    @extend %field-base;
+  }
+  &__select {
+    @extend %field-base;
+    appearance: none;
+    cursor: pointer;
+  }
+  &__textarea {
+    @extend %field-base;
+    resize: vertical;
+    line-height: 1.8;
+  }
 
   &__submit {
     text-align: center;
@@ -83,10 +101,8 @@
   // ── Thanks ───────────────────────────────────────────────────────────────
 
   &__thanks {
-    max-width: 640px;
     margin: 0 auto;
     text-align: center;
-    padding: 56px 40px;
     background: $color-bg-gray;
     border-radius: 4px;
     font-size: 15px;
@@ -99,6 +115,9 @@
   @include mobile {
     padding: 48px 0;
 
-    &__lead { font-size: 14px; margin-bottom: 40px; }
+    &__lead {
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
   }
 }

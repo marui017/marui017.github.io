@@ -2,7 +2,7 @@
 // Foundation / Base
 // ==========================================================================
 
-@use 'variables' as *;
+@use "variables" as *;
 
 html {
   scroll-behavior: smooth;
@@ -13,4 +13,10 @@ body {
   color: $color-text;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }
