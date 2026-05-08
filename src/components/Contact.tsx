@@ -16,8 +16,8 @@ export default function Contact() {
             お気軽にお問い合わせください。まずはご相談から。
           </p>
           <div>
-            <Link to="/contact" className="c-button c-button--outline">
-              Read More
+            <Link to="/contact" className="c-button c-button--contact">
+              お問い合わせはこちら
             </Link>
           </div>
         </div>
