@@ -1,3 +1,6 @@
+import ImageWorks01Pc from "../assets/img/image_works01_pc.png";
+import ImageWorks01Sp from "../assets/img/image_works01_sp.png";
+
 export type Work = {
   id: number;
   title: string;
@@ -37,8 +40,8 @@ export const works: Work[] = [
     color: "linear-gradient(135deg, #1a2968 0%, #243580 100%)",
     url: "",
     images: {
-      pc: "/src/assets/img/image_works01_pc.png",
-      sp: "/src/assets/img/image_works01_sp.png",
+      pc: ImageWorks01Pc,
+      sp: ImageWorks01Sp,
     },
   },
   {
@@ -61,8 +64,8 @@ export const works: Work[] = [
     color: "linear-gradient(135deg, #1a2968 0%, #243580 100%)",
     url: "",
     images: {
-      pc: "/src/assets/img/image_works01_pc.png",
-      sp: "/src/assets/img/image_works01_sp.png",
+      pc: ImageWorks01Pc,
+      sp: ImageWorks01Sp,
     },
   },
 ];

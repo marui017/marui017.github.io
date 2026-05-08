@@ -1,3 +1,5 @@
+import aboutImg from "../assets/img/about.png";
+
 export default function About() {
   return (
     <section id="about" className="p-about">
@@ -20,11 +22,7 @@ export default function About() {
 
         <div className="p-about__image-wrap" aria-hidden="true">
           <div className="p-about__photo">
-            <img
-              className="p-about__image"
-              src="./src/assets/img/about.png"
-              alt="marui"
-            />
+            <img className="p-about__image" src={aboutImg} alt="marui" />
           </div>
         </div>
       </div>
