@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import { works } from '../data/works'
-import PageHero from '../components/PageHero'
+import { Link } from "react-router-dom";
+import { works } from "../data/works";
+import PageHero from "../components/PageHero";
 
 export default function WorksPage() {
   return (
@@ -11,10 +11,20 @@ export default function WorksPage() {
         <div className="l-inner">
           <div className="p-works-page__grid">
             {works.map((work) => (
-              <Link key={work.id} to={`/works/${work.id}`} className="c-card c-card--link">
+              <Link
+                key={work.id}
+                to={`/works/${work.id}`}
+                className="c-card c-card--link"
+              >
                 <div
                   className="c-card__thumbnail"
-                  style={work.color ? { background: work.color } : undefined}
+                  style={
+                    work.images?.pc
+                      ? { backgroundImage: `url(${work.images.pc})` }
+                      : work.color
+                        ? { background: work.color }
+                        : undefined
+                  }
                   aria-hidden="true"
                 />
                 <div className="c-card__body">
@@ -23,7 +33,9 @@ export default function WorksPage() {
                   <p className="c-card__desc">{work.description}</p>
                   <ul className="c-card__tags">
                     {work.tags.map((tag) => (
-                      <li key={tag} className="c-card__tag">{tag}</li>
+                      <li key={tag} className="c-card__tag">
+                        {tag}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -33,5 +45,5 @@ export default function WorksPage() {
         </div>
       </section>
     </>
-  )
+  );
 }
