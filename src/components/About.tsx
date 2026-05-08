@@ -16,9 +16,6 @@ export default function About() {
             <br />
             丁寧なヒアリングを心がけ、ご要望をわかりやすく形にします。
           </p>
-          <a href="/about" className="c-button c-button--outline">
-            Read More
-          </a>
           <div>
             <Link to="/about" className="c-button c-button--outline">
               Read More

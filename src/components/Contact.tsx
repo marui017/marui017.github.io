@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Contact() {
   return (
     <section id="contact" className="p-contact">
@@ -9,12 +11,17 @@ export default function Contact() {
             <h2 className="c-section-label__en">CONTACT</h2>
           </div>
           <p className="p-contact__description">
-            Webサイト制作・バナー制作・コーディングのご依頼は<br />
+            Webサイト制作・バナー制作・コーディングのご依頼は
+            <br />
             お気軽にお問い合わせください。まずはご相談から。
           </p>
-          <a href="/contact" className="c-button c-button--contact">お問い合わせはこちら</a>
+          <div>
+            <Link to="/contact" className="c-button c-button--outline">
+              Read More
+            </Link>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
